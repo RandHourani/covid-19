@@ -48,6 +48,9 @@ class HomeController extends GetxController {
     update();
   }
   filterCases(BuildContext context,) async {
+    if(startDate.value==endDate.value||endDate.value==null)
+      {}
+    else{
 
     List<BaseModel>? res = await repository
         .getDomainOfCase(context,startDate.value,endDate.value,userCountry.value.countryName.toString());
@@ -56,7 +59,7 @@ class HomeController extends GetxController {
       totalOfCases!.value = res;
       update();
     }
-    update();
+    update();}
   }
 
   updateUserCountry(String name, String code) {
